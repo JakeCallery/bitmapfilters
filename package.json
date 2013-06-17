@@ -1,0 +1,9 @@
+{
+	"name":"BitmapFilters",
+	"version":"0.0.1",
+	"author":"Jake Callery <jake@subvoicestudios.com>",
+	"description":"BitmapFilters",
+	"dependencies": {
+		"requirejs" :"*"
+	}
+}
