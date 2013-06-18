@@ -11,9 +11,10 @@ define([
 'jac/utils/BitmapUtils',
 'jac/bitmap/GreyscaleFilter',
 'jac/utils/EventUtils',
-'jac/bitmap/ThresholdFilter'
+'jac/bitmap/ThresholdFilter',
+'jac/bitmap/BrightnessFilter'
 ],
-function(L,ConsoleTarget,BitmapUtils,GreyscaleFilter,EventUtils,ThresholdFilter){
+function(L,ConsoleTarget,BitmapUtils,GreyscaleFilter,EventUtils,ThresholdFilter,BrightnessFilter){
 	L.addLogTarget(new ConsoleTarget());
 	L.log('New Main!');
 
@@ -39,7 +40,8 @@ function(L,ConsoleTarget,BitmapUtils,GreyscaleFilter,EventUtils,ThresholdFilter)
 		var srcImageData = sourceCtx.getImageData(0,0,300,300);
 		var destImageData = destCtx.getImageData(0,0,300,300);
 		//GreyscaleFilter.filter(srcImageData.data,destImageData.data);
-		ThresholdFilter.filter(srcImageData.data,destImageData.data,'>=', 0x000000AA, 0xFF00FFFF,0x000000FF, false);
+		//ThresholdFilter.filter(srcImageData.data,destImageData.data,'>=', 0x000000AA, 0xFF00FFFF,0x000000FF, false);
+		BrightnessFilter.filter(srcImageData.data, destImageData.data, 40);
 		destCtx.putImageData(destImageData,0,0);
 
 	};
